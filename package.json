@@ -7,7 +7,7 @@
   "description": "Quiz maker website",
   "main": "app.js",
   "scripts": {
-    "postinstall": "npm install --legacy-peer-deps"
+    
   },
   "keywords": [],
   "author": "Kaushal Sindhu",
