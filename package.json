@@ -5,7 +5,7 @@
   "name": "quiz-quest",
   "version": "1.0.0",
   "description": "Quiz maker website",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
