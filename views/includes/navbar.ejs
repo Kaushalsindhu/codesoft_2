@@ -1,0 +1,25 @@
+<div id="header">
+    <div id="brand">
+        <img src="/assets/navbar/logo.png" alt="logo">
+        <h2><b class="blue">Quiz</b><b class="black">Quest</b></h2>
+    </div>
+    <div id="collapse" class="hidden"> 
+        <i class="fa-solid fa-bars" style="color: #0c519c;"></i>
+    </div>
+    <div id="navbar">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/quiz/explore">Explore</a>
+        <a href="/quiz/new">Quizify</a>
+        <%if(!currUser){%>
+        <a href="/login">Login</a>
+        <%}else{%>
+        <a href="/logout">Logout</a>
+        <%}%>
+    </div>
+</div>    
+ 
+    
+
+
+

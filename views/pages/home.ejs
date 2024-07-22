@@ -1,0 +1,37 @@
+<% layout('/layout/boilerplate.ejs') %>
+<body>
+    <div id="homeBox">
+        <div id="welcome-section">
+            <div id="banner">
+                <img src="/assets/home/home1.gif" alt="banner">
+            </div> 
+            <div id="welcome">
+                <h1>Welcome to <b class="blue">Quiz</b><b class="black">Quest </b>!!</h1><br>
+                <p>
+                    Your ultimate destination for creating, sharing, and mastering quizzes online! Whether you're a teacher looking to engage students, a business aiming to train employees, or a trivia enthusiast wanting to challenge friends, QuizQuest offers an intuitive and versatile platform to meet all your quiz-making needs. Dive into our user-friendly interface, explore a myriad of customizable templates, and join a vibrant community dedicated to learning and fun. Get started today and turn knowledge into an adventure with QuizQuest!
+                </p>
+            </div>
+        </div>
+
+        <div id="featured-section">
+            <h1>Featured Quizzes</h1><br>
+            <div id="featured-quizzes">
+                <% for(quiz of featuredQuizzes){ %> 
+                    <a href="/quiz/<%= quiz._id %>/show">
+                        <div class="quiz-card">
+                            <div class="quiz-card-img">
+                                <img src=<%= quiz.image.url %> alt=<%= quiz.quizname %>>
+                            </div>
+                            <div class="quiz-card-content">
+                                <p><%= quiz.quizname %></p>
+                            </div>
+                        </div>
+                    </a>
+                <% } %>
+            </div>
+        </div>
+    
+        
+    </div>
+</body>
+    

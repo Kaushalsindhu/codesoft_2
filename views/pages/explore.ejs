@@ -1,0 +1,18 @@
+<% layout('/layout/boilerplate.ejs') %> 
+<body>
+    <h1 id="allHead">All Quizzes</h1>
+    <div id="explore-div">
+        <% for(let quiz of allQuizzes) { %>
+            <a href="/quiz/<%= quiz._id %>/show">
+                <div class="expQuiz-card">
+                    <div class="expQuiz-img"><img src=<%=quiz.image.url%> alt="quizImage"></div>
+                    <div class="expQuiz-text">
+                        <h2><%= quiz.quizname %></h2>
+                        <p>No. of questions : <%= quiz.quesNumbers %></p>
+                        <p>Time Limit : <%= (quiz.quesNumbers * 10) %>s</p>
+                    </div>
+                </div>
+            </a>  
+        <% } %>
+    </div>
+</body>

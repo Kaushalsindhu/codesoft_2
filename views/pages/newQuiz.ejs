@@ -1,0 +1,116 @@
+<% layout('/layout/boilerplate.ejs') %> 
+<body>
+  
+<div id="newForm-div">
+  <% if(!formData.quizCreated){ %>
+    <div class="imgDiv">
+      <img class="create_img" src="/assets/home/create.webp" alt="">
+    </div>
+  <% } %>
+  <div class="quizForm-div">
+    <% if(formData.quizCreated) { %>
+      <h1 class="quiz-heading">Create a New Quiz</h1>
+      <form action="/quiz" class="quizForm disabled formDisabled" method="POST">
+        <div>
+          <label for="quizname">Quiz Name:</label><br>
+          <input type="text" id="quizname" name="quizname" value="<%= formData.quizname %>" required disabled><br><br>
+        </div>
+        <div>
+          <label for="quesNumbers">Number of Questions:</label>
+          <input type="number" id="quesNumbers" name="quesNumbers" value="<%= formData.quesNumbers %>" required disabled><br><br>
+        </div>
+        <div>
+          <label for="description">Description:</label><br>
+          <textarea id="description" name="description" required disabled><%= formData.description %></textarea><br><br>
+        </div>
+      </form>
+      <form action="/quiz/reset?_method=DELETE" id="resetForm" method="POST" style="margin-top: 20px;">
+        <button class="resetBtn" type="submit">Reset Quiz</button>
+      </form>
+    <% } else {%>
+      <h1 class="quiz-heading">Create a New Quiz</h1>
+      <form action="/quiz" class="quizForm" method="POST" enctype="multipart/form-data">
+        <div>
+          <label for="quizname">Quiz Name:</label><br>
+          <input type="text" id="quizname" name="quizname" required>
+        </div><br>
+        <div>
+          <label for="quesNumbers">Number of Questions:</label>
+          <input type="number" id="quesNumbers" name="quesNumbers" min="1" max="10" required>
+        </div><br>
+        <div>
+          <label for="description">Description:</label><br>
+          <textarea id="description" name="description" rows="3" cols="30" required></textarea>
+        </div><br>
+        <div class="file-input-div">
+          <input type="file" class="ques-img" id="image" name="image" required>
+          <label for="image" class="ques-img-label"><i class="fa-solid fa-upload"></i> Upload Image</label><br>
+        </div>
+        <button type="submit">Create Quiz</button>
+      </form>
+    <% } %>
+  </div>
+
+
+  <% if(formData.quesNumbers > 0){ %>
+  <div class="quesForm-div">
+    <h2>Questions</h2>
+    <div id="ques-div">
+      <% for (let i = 0; i < formData.quesNumbers; i++) { %>
+        <div class="question" <%if(i != currentQuestionIndex) {%> style='display:none;'<%}%>>
+          <form method="POST" action="/question" class="quesForm" enctype="multipart/form-data">
+            <input type="hidden" name="currentQuestionIndex" value="<%= i %>">
+            <div>
+              <label for="ques">Question <%= i + 1 %>:</label><br>
+              <input type="text" class="quesForm-input" placeholder="Question" id="ques" name="ques" required>
+            </div>
+            <div>
+              <label for="options">Options:</label><br>
+              <input type="text" name="options" class="options-input" placeholder="Option 1" required>
+              <input type="text" name="options" class="options-input" placeholder="Option 2" required>
+              <input type="text" name="options" class="options-input" placeholder="Option 3" required>
+              <input type="text" name="options" class="options-input" placeholder="Option 4" required>
+            </div>
+            <div>
+              <label for="answer">Answer:</label><br>
+              <input type="number" class="quesForm-input" min="1" max="4" placeholder="Enter Correct Option" id="answer" name="answer" required>
+            </div>
+            <div class="file-input-div">
+              <input type="file" class="ques-img" id="image<%=i%>" name="image">
+              <label for="image<%=i%>" class="ques-img-label"><i class="fa-solid fa-upload"></i> Upload Image</label><br>
+            </div>
+            <button class="quesBtn" type="submit">Create Question</button>
+          </form>
+        </div>
+      <% } %>
+    </div>
+  </div>
+  <% } %>
+</div>
+
+<script>
+    function handleBeforeUnload(event) {
+      event.preventDefault();
+      event.returnValue = '';
+      const formData = new FormData();
+      formData.append('_method', 'DELETE');
+      fetch('/quiz/reset?_method=DELETE', {
+      method: 'POST',
+      body: formData,
+      keepalive: true
+      });
+    }
+
+    const disabledForm = document.querySelector('.formDisabled')
+    if(disabledForm){
+      window.addEventListener('beforeunload', handleBeforeUnload);
+    }
+
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', () => {
+        window.removeEventListener('beforeunload', handleBeforeUnload);
+      });
+    });
+
+</script>
+</body>

@@ -1,0 +1,46 @@
+#flash{
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    height: 70px;
+    width: 300px;
+    padding: 0 20px;
+    border-radius: 20px;
+    background-color:#fefefe;
+    box-shadow: 5px 5px 20px black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    animation: fade 2s ease;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+    z-index: 999;
+}
+
+@keyframes fade{
+    0%{
+        opacity: 1;
+        display: flex;
+        transform: translateX(0);
+    }
+    100%{
+        opacity: 0;
+        display: none;
+        transform: translateX(500px);
+    }
+}
+#flash p{
+    font-family: 'Poppins';
+    font-size: 18px;
+}
+#flash i{
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 600px){
+    #flash{
+        right: 10px;
+        width: 95%;
+    }
+}

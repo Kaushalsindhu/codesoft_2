@@ -1,0 +1,26 @@
+<% layout('/layout/boilerplate.ejs') %> 
+
+<body>
+    <div id="showQuiz-div">
+        <!-- <img src="/assets/home/show.svg" height="600px" width="600px" alt="image"> -->
+        <div class="showQuiz-card">
+            <div class="showQuiz-img"><img src="<%= quiz.image.url %>" alt="image"></div>
+            <div class="showQuiz-text">
+                <h2><%= quiz.quizname %></h2>
+                <p><%= quiz.description %></p>
+                <p><b>Number of Questions : </b> <%= quiz.quesNumbers %></p>
+                <p><b>Time Limit :</b> <%= (quiz.quesNumbers * 10) %>s</p>
+                <p><b>Creator : </b><%= creatorName %></p>
+                <div class="showQuiz-btns">
+                    <% if(currUser && currUser.username == creatorName){ %>
+                    <form class="delForm" method="POST" action="/quiz/<%= quiz._id %>/delete?_method=DELETE">
+                        <button class="del-btn">Delete</button>
+                    </form>
+                    <% } %>
+                    <a href="/quiz/<%= quiz._id %>/test"><button class="start-btn">Start Quiz</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

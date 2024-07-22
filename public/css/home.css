@@ -1,0 +1,166 @@
+#homeBox{
+    width: 100%;
+    display: flex;
+    z-index: 1;
+}
+
+#welcome-section{
+    width: 70%;
+    height: 105vh;
+    display: flex;
+    flex-direction: column;
+}
+#banner{
+    width: 100%;
+    height: 65vh;
+    padding: 0 70px;
+    background-color: #d6ecf9;
+}
+#banner img{
+    height: 100%;
+    width: 90%;
+}
+#welcome{
+    height: 40vh;
+    width: 100%;
+    padding: 20px 50px;
+}
+#welcome h1{
+    font-size: 48px;
+}
+#welcome p{
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #5c5c5c;
+}
+
+#featured-section{
+    height: 105vh;
+    width: 30%;
+    padding: 20px 30px;
+    background-color: rgb(12, 81, 156);
+}
+#featured-section h1{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 48px;
+    text-align: center;
+    color: white;
+}
+#featured-quizzes{
+    height: 90%;
+    padding: 20px;
+    overflow-y: scroll;
+}
+#featured-quizzes::-webkit-scrollbar{
+    width: 0;
+}
+
+.quiz-card{
+    height: 30vh;
+    width: 100%;
+    background-color: #f0f0f0;
+    margin-bottom: 20px;
+    border-radius: 40px; 
+    box-shadow: 0 0 20px black;
+    transition: all 0.4s;
+}
+.quiz-card:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 5px black;
+}
+.quiz-card-img{
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    height: 85%;
+}
+.quiz-card-img img{
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+.quiz-card-content{
+    height: 15%;
+}
+.quiz-card-content p{
+    height: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    text-align: center;
+    background-color: rgb(43,43,43);
+    color: white;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+@media only screen and (max-width: 1320px){
+    #banner{
+        padding: 0;
+    }
+    #banner img{
+        width: 100%;
+    }
+    #featured-section{
+        height: 110vh;
+        padding: 20px 0;
+    }
+    #featured-quizzes {
+        height: 85%;
+    }
+    .quiz-card{
+        height: 25vh;
+    }
+} 
+
+@media only screen and (max-width: 900px){
+    #homeBox{
+        display: block;
+    }
+    #welcome-section{
+        width: 100%;
+        height: fit-content;
+        margin-bottom: 50px;
+    }
+    #welcome{
+        height: fit-content;
+    }
+    #featured-section{
+        width: 100%;
+        padding: 40px 40px 0 40px;
+    }
+    .quiz-card{
+        width: 80%;
+        height: 35vh;
+        margin: 0 auto 20px auto;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    #welcome-section{
+        margin-bottom: 100px;
+        height: fit-content;
+        margin-bottom: 30px;
+    }
+    #banner{
+        height: 45vh;
+    }
+    #welcome{
+        height: fit-content;
+        padding: 20px;
+    }
+    #featured-section{
+        padding: 30px 20px;
+    }
+    #featured-quizzes{
+        height: 90%;
+    }
+    .quiz-card{
+        height: 25vh;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #featured-quizzes{
+        height: 85%;
+    }
+}

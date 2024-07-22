@@ -1,0 +1,51 @@
+#about-page{
+    padding: 50px 300px;
+}
+#about{
+    margin-bottom: 60px;
+}
+#about-page h1{
+    font-size: 50px;
+    color:rgb(43, 43, 43);
+}
+#about-page h2{
+    margin-top:40px;
+    font-size: 30px;
+    color:rgb(43, 43, 43);
+}
+#about-page h3{
+    margin-top: 30px;
+    font-size: 20px;
+    color:rgb(43, 43, 43);
+    display: inline;
+    font-family: sans-serif;
+}
+#about-page p{
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 100;
+    display: inline;
+    color: #5c5c5c;
+}
+
+@media only screen and (max-width: 1300px){
+    #about-page{
+        padding: 50px 200px;
+    } 
+}
+@media only screen and (max-width: 900px){
+    #about-page{
+        padding: 30px 120px;
+    }
+}
+@media only screen and (max-width: 600px){
+    #about-page{
+        padding: 20px 20px;
+    }
+    #about-page h1{
+        font-size: 40px;
+    }
+    #about-page h2{
+        margin-top: 20px;
+    }
+}

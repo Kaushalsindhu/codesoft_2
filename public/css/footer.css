@@ -1,0 +1,113 @@
+#footer{
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+    min-height: 100px;
+    padding: 50px 40px 10px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 16px gray;
+}
+
+#link-section{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin-bottom: 30px;
+}
+#link-section h2{
+    color: rgb(12,81,156);
+    margin-bottom: 10px;
+    font-size: 30px;
+    text-align: start;
+}
+#link-section li{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(65, 63, 63);
+    margin-bottom: 5px;
+}
+#link-section a{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(65, 63, 63);
+    display: inline-block;
+    transition: all 0.4s;
+    margin-bottom: 5px;
+}
+#link-section a:hover{
+    transform: translateX(20px);
+}
+
+#social-section{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+#social-section h2{
+    color: rgb(12,81,156);
+    font-size: 30px;
+    text-align: center;
+}
+.socialIcons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+}
+.socialIcons li a i{
+    font-size: 24px;
+    color: rgb(65, 63, 63);
+    margin: 0 10px;
+    display: inline-block;
+    opacity: 0.75;
+    transition: 0.4s all;
+}
+.socialIcons li a i:hover{
+    opacity: 1;
+    color: rgb(12,81,156);
+    transform: scale(1.1);
+}
+
+#footer p{
+    color: rgb(65, 63, 63);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+}
+
+@media only screen and (max-width: 1200px){
+    #link-section{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    #link-section{
+        flex-wrap: wrap;
+    }
+    #link-section div{
+        width: 50%;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    #link-section h2{
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    #footer{
+        padding: 50px 0 10px 0;
+    }
+    #link-section{
+        margin-bottom: 0;
+    }
+    #link-section h2{
+        font-size: 24px;
+    }
+    .socialIcons li a{
+        margin: 0 5px;
+    }
+}
+

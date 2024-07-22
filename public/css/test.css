@@ -1,0 +1,169 @@
+.testPage{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.testPage h1{
+    font-family: 'Poppins';
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+.testPage form{
+    width: 60%;
+    height: fit-content;
+    padding: 0;
+    border-radius: 50px;
+    box-shadow: 0 0 20px gray;
+}
+.testBox{
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.testQuesDiv{
+    min-width: 100%;
+    height: fit-content;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+.testQues{
+    height: fit-content;
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 30px;
+}
+.testQues p{
+    font-family: 'Poppins';
+    font-size: 20px;
+}
+.opImgDiv{
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.testImg{
+    width: 40%;
+    height: 250px;
+    border:1px solid lightgray;
+    border-radius: 50px;
+}
+.testImg img{
+    border-radius: 50px;
+}
+.testOptions{
+    height: 350px;
+    width: 55%;
+}
+.testOptions button{
+    height: 24%;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: start;
+    padding: 5px 20px;
+    font-family: 'Poppins';
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+.testOptions button:hover:not([disabled]){
+    background-color: #b8e2f2;
+}
+.testOptions button:disabled{
+    cursor: no-drop;
+}
+.timer{
+    height: 30%;
+    width: 20%;
+    padding-right: 50px;
+}
+.timer p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 36px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.correct{
+    background-color: #9aeabc;
+}
+.incorrect{
+    background-color: #ff9393;
+}
+
+.scorePage{
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    color: white;
+    opacity: 0.9; 
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 997;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.scorePage h2{
+    font-size: 48px;
+    margin-top: 30px;
+    background: linear-gradient(252.6deg, rgb(255, 100, 241) 13.2%, rgb(67, 220, 255) 81.3%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.scorePage a{
+    text-decoration: none;
+    padding: 15px;
+    font-family: 'Poppins';
+    font-size: 24px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 15px;
+    background-color: #2d71ff;
+    color: white;
+}
+
+@media only screen and (max-width: 900px){
+    .timer{
+        padding: 0;
+        position: absolute;
+        top: 200px;
+        right: 0px;
+    }
+    .opImgDiv{
+        flex-direction: column;
+    }
+    .testImg{
+        width: 50%;
+        height: 180px;
+        margin-bottom: 10px;
+    }
+    .timer img{
+        display: none;
+    }
+    .testOptions{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .scorePage h2{
+        font-size: 36px;
+    }
+    .scorePage h1{
+        font-size: 30px;
+    }
+    .testImg{
+        height: 150px;
+        width: 60%;
+    }
+}

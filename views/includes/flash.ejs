@@ -1,0 +1,13 @@
+<% if(success && success.length) {%>
+    <div id="flash">
+        <i class="fa-solid fa-circle-check fa-bounce" style="color: rgb(7, 241, 7);"></i>
+        <p><%= success %></p>
+    </div>
+<% } %>
+
+<% if(failure && failure.length) {%>
+    <div id="flash">
+        <i class="fa-solid fa-triangle-exclamation fa-beat-fade" style="color: #f10404;"></i>
+        <p><%= failure %></p>
+    </div>
+<% } %>

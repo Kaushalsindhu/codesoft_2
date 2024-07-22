@@ -1,0 +1,72 @@
+<% layout('/layout/boilerplate.ejs') %> 
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="/login" method="POST" class="sign-in-form">
+                    <h2 class="title">Sign in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input name="username" type="text" placeholder="Username" required/>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input name="password" type="password" placeholder="Password" required/>
+                    </div>
+                    <input type="submit" value="Login" class="btn solid" />
+                    <p class="social-text">Or Sign in with social platforms</p>
+                    <div class="social-media">
+                        <a href="/auth/google" class="social-icon">
+                            <img src="assets/login/google1.png" alt="google">
+                        </a>
+                    </div>
+                </form>
+                <form action="/signup" method="POST" class="sign-up-form">
+                    <h2 class="title">Sign up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input name="username" type="text" placeholder="Username" required/>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input name="email" type="email" placeholder="Email" required/>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input name="password" type="password" placeholder="Password" required/>
+                    </div>
+                    <input type="submit" class="btn" value="Sign up" />
+                    <p class="social-text">Or Sign up with social platforms</p>
+                    <div class="social-media">
+                        <a href="/auth/google" class="social-icon">
+                            <img src="assets/login/google1.png" alt="google">
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                <h3>New here ?</h3>
+                <p>
+                    Create an account to start your journey with QuizQuest. It's quick, easy, and free!
+                </p>
+                <button class="btn transparent" id="sign-up-btn">Sign up</button>
+            </div>
+            <img src="/assets/login/log.svg" class="image" alt="logImage" />
+        </div>
+        <div class="panel right-panel">
+            <div class="content">
+                <h3>One of us ?</h3>
+                <p>
+                    Welcome back! Please log in to continue your quiz journey with QuizQuest.
+                </p>
+                <button class="btn transparent" id="sign-in-btn">Sign in</button>
+            </div>
+            <img src="/assets/login/register.svg" class="image" alt="registerImg" />
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,14 @@
+<% layout('/layout/boilerplate.ejs') %> 
+<body>
+    <div id="error">
+        <% if(statusCode == 404){ %>
+            <img id="err404" src="/assets/error/notFound.svg" alt="notFound">
+        <% } else {%>
+            <img id="err500" src="/assets/error/internalErr.svg" alt="internalError">
+        <% } %>
+        <div id="msg-box">
+            <h2><%=message%></h2>
+            <a href="/">Try Again</a>
+        </div>
+    </div>
+</body>

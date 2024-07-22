@@ -1,0 +1,142 @@
+<% layout('/layout/boilerplate.ejs') %> 
+
+<body>
+    <div class="testPage">
+        <div class="testBox">
+            <div class="testQuesDiv">
+                <div class="testQues">
+                    <p></p>
+                </div>
+                <div class="opImgDiv">
+                    <div class="testImg">
+                        <img height="100%" width="100%" src="" alt="quesImage">
+                    </div>
+                    <div class="testOptions" >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timer">
+            <img src="/assets/home/timer.gif" height="80%" width="100%" alt="">
+            <p></p>
+        </div>
+    </div>
+    <div class="scorePage">
+        <h1></h1>
+    </div>
+
+    <script>
+        let strQuestions = JSON.parse('<%- JSON.stringify(questions).replace(/'/g, "\\'").replace(/"/g, '\\"') %>');
+        const timer = document.querySelector('.timer p');
+        timer.innerHTML = (strQuestions.length * 10) + " s";
+        let startingSeconds = parseInt(document.querySelector('.timer p').textContent.replace('s','').trim());
+        const intervalId = setInterval(updateTimer, 1000);
+
+        function updateTimer(){
+            timer.innerHTML = `${startingSeconds} s`;
+            startingSeconds--;
+            if(startingSeconds < 0){
+                clearInterval(intervalId);
+                timer.innerHTML = 'Time Up';
+                finishQuiz();
+            }
+        }
+        
+        const quesElement = document.querySelector('.testQues p');
+        const ansBtns = document.querySelector('.testOptions');
+        const imgElement = document.querySelector('.testImg');
+        const img = document.querySelector('.testImg img');
+        const testPage = document.querySelector('.testPage');
+        const scorePage = document.querySelector('.scorePage');
+        const scoreElement = document.querySelector('.scorePage h1');
+
+        let currQuesIndex = 0;
+        let score = 0;
+
+        function startQuiz(){
+            currQuesIndex = 0;
+            score = 0;
+            showQuestion();
+        }
+
+        function finishQuiz(){
+            scorePage.style.display = 'flex';
+            if(score === strQuestions.length){
+                const congrats = document.createElement("h2");
+                congrats.innerHTML = "CONGRATULATIONS";
+                scorePage.appendChild(congrats);
+            }
+            const exitBtn = document.createElement("a");
+            scorePage.appendChild(exitBtn);
+            exitBtn.setAttribute('href',"/quiz/explore");
+            exitBtn.innerHTML = "Try More Quizzes";
+            scoreElement.textContent = `You scored ${score} out of ${strQuestions.length} !`;
+        }
+
+        function resetState(){
+            while(ansBtns.firstChild){
+                ansBtns.removeChild(ansBtns.firstChild);
+            }
+        }
+
+        function showQuestion(){
+            resetState();
+            let currQues = strQuestions[currQuesIndex];
+            let quesNo = currQuesIndex + 1;
+            quesElement.innerHTML = quesNo + ". " + currQues.question;
+ 
+            if(!currQues.image){ 
+                imgElement.style.display = 'none';
+                ansBtns.style.width = "100%";
+            }else{ 
+                img.attributes[2].value = currQues.image;
+            }
+
+            currQues.answers.forEach(answer => {
+                const btn = document.createElement("button")
+                btn.innerHTML = answer.text;
+                ansBtns.appendChild(btn);
+                if(answer.correct){
+                    btn.dataset.correct = answer.correct;
+                }
+                btn.addEventListener('click',selectAnswer);
+            })
+        }
+
+        function showScore(){
+            finishQuiz();
+            quesElement.innerHTML = `You scored ${score} out of ${strQuestions.length}!`;
+        }   
+
+        function selectAnswer(e){
+            const selectBtn = e.target;
+            const isCorrect = selectBtn.dataset.correct === "true";
+            if(isCorrect){
+                selectBtn.classList.add('correct');
+                score++;
+            }else{
+                selectBtn.classList.add('incorrect');
+            }
+            Array.from(ansBtns.children).forEach(btn => {
+                if(btn.dataset.correct === "true"){
+                    btn.classList.add("correct");
+                }
+                btn.disabled = true;
+            })
+            setTimeout(()=>{
+                if(currQuesIndex < strQuestions.length){
+                    currQuesIndex++;
+                    if(currQuesIndex < strQuestions.length){
+                        showQuestion();
+                    }else{
+                        clearInterval(intervalId);
+                        showScore();
+                    }
+                } 
+            }, 1500);
+        }
+
+        startQuiz();
+    </script>
+</body>

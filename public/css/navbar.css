@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+html, body{
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+#main {
+    flex: 1;
+    width: 100%;
+}
+
+#header{
+    width: 100%;
+    height: 80px;
+    padding: 0 100px;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 16px gray;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    opacity: 0.95;
+}
+
+#brand{
+    width: 15%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+#brand:hover{
+    transform: scale(1.1);
+}
+#brand img{
+    width: 60px;
+    height: 60px;
+}
+#brand h2{
+    font-size: 30px;
+}
+.blue{
+    color: rgb(12, 81, 156);
+}
+.black{
+    color: rgb(43, 43, 43);
+}
+#collapse{
+    display: none;
+}
+
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+#navbar a{
+    display: block;
+    color: rgb(43, 43, 43);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    padding: 8px 15px;
+    border-radius: 50px;
+    transition: 0.3s;
+    margin: 0 5px;
+}
+#navbar a:hover{
+    background-color:rgb(18, 116, 222);
+    color: #fefefe;
+}
+#navbar a.active{
+    background-color:rgb(18, 116, 222);
+    color: #fefefe;
+}
+
+@media only screen and (max-width: 1320px){
+    #header{
+        padding: 0 50px;
+    }
+}
+
+@media only screen and (max-width: 1100px){
+    #header{
+        padding: 0px 30px;
+        display: flex;
+    }
+    #brand{
+        height: 60px;
+        width: 25%;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    #brand{
+        height: 50px;
+    }
+    #collapse{
+        display: block;
+        cursor: pointer;
+    }
+    #collapse i{
+        font-size: 40px;
+    }
+    #navbar{
+        height: 0px;
+        width: 100vw;
+        padding: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        background-color: rgb(227, 226, 226);
+        transition: 0.5s;
+        display: block;
+        overflow: hidden;
+        box-shadow: -5px 0 0 gray;
+    }
+    #navbar.activeNav{
+        height: 450px;
+    }
+    #navbar a{
+        margin: 45px 200px 0 200px;
+    }
+}
+
+@media only screen and (max-width:600px){
+    #header img{
+        height: 40px;
+        width: 40px;
+    }
+    #navbar a{
+        margin: 40px 100px 0 100px;
+    }
+}
